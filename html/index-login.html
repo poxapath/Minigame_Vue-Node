@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style-login.css">
+    <title>Login</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<body>
+    <div id="app">
+        <main class="main">
+            <div class="conteudo">
+                
+            </div>
+
+            <form v-if="!loginRealizado && !cadastroRealizado" @submit.prevent="login">
+                <h1><b>Entrar</b></h1>
+                <span>{{ avisoLogin }}</span>
+
+                <div class="inputs">
+    
+                    <label for="username" class="label-space"><b> Usuário</b></label>
+                    <input type="text" v-model="nome" required>
+                    
+                    <label for="password" class="label-space"><b>Senha</b></label>
+                    <input type="password" v-model="senha" required>
+                    <a href="#" class="botao-link" @click.prevent="mostrarCadastro"> Criar Conta</a>
+                </div>
+                
+                <a href="/index.html"><button type="submit" class="btn-form"  @click="fazerLogin"> Login</button></a>
+            </form>
+
+            <form v-if="!loginRealizado && cadastroRealizado" @submit.prevent="cadastrar">
+                <h1><b>Criar Conta</b></h1>
+                <span>{{ avisoCadastro }}</span>
+
+                <div class="inputs">
+                    <label for="name"><b> Nome</b></label>
+                    <input type="text" v-model="nome">
+    
+                    <label for="newUsername" class="label-space"><b> Email</b></label>
+                    <input type="text" v-model="email" required>
+    
+                    <label for="newPassword" class="label-space"><b> Senha</b></label>
+                    <input type="password" v-model="senha" required>
+                    <a href="#" class="botao-link" @click.prevent="mostrarLogin"> Voltar para tela de Login</a>
+                </div>
+
+                <a href="/index.html"><button type="submit" class="btn-form" @click = "criarConta"> Cadastrar</button></a>
+            </form>
+
+            <div v-if="loginRealizado">
+                <h1>Bem-vindo, {{ username }}!</h1>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/index-login.js"></script>
+    <!-- <script src="/server.js"></script> -->
+
+</body>
+</html>

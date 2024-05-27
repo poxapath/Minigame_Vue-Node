@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prova - Jogo Herói e Vilão</title>
+    <link rel="stylesheet" href="/css/style-game.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="display-game">
+        <div id="app" class="cards">
+
+            <!-- heroi -->
+            <div class="personagem" > 
+                <div class="barra-vida" :style="{width: heroi.vida + '%'}">{{ heroi.vida }}</div>
+                <div class="sprite"><img class="img" src="/img/heroi.jpg" alt="Imagem do herói"></div>
+                <h1>Herói</h1>
+    
+    
+                <div class="acoes">
+                    <button @click="atacar(true)">Atacar</button>
+                    <button @click="defender(true)">Defender</button>
+                    <button @click="usarPocao(true)">Usar Poção</button>
+                    <button @click="correr(true)">Correr</button>
+                </div>
+            </div> <!-- heroi -->
+    
+            <!-- histórico // logs -->
+            <div class="personagem">
+                <h1>JOGADAS</h1>
+                <ul id="logs">
+                    <li v-for="log in logs">{{ log }}</li>
+                </ul>
+            </div> <!-- histórico // logs -->
+    
+            <!-- vilão -->
+            <div class="personagem">
+                <div class="barra-vida" :style="{width: vilao.vida + '%'}">{{ vilao.vida }}%</div>
+                <div class="sprite"><img class="img" src="/img/vilao.jpg" alt="Imagem do vilão"></div>
+                <h1>Vilão</h1>
+            </div> <!-- vilão -->   
+    
+        </div>
+    </div>
+
+    <div id="acess-btn">
+        <button class="acess-btn" onclick="window.open('/html/dashboard.html','_blank')">Dashboard</button>
+        <button class="acess-btn" onclick="window.open('/html/index-login.html','_blank')">Login</button>
+    
+    </div>
+
+
+</body>
+</html>
+
+<script type="module" src="/js/index.js"></script>
