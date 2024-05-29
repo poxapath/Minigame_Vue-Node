@@ -18,16 +18,16 @@ Nesse jogo, temos duas cartas na mesa: nossa heroína "Violeta" e nosso vilão "
 
 - Página de login: 
 
-  <img src="/img/login.png"  width="120" height="70"></img>
+  <img src="/img/login.png"></img>
 
 - Tela de jogo:
 
-  <img src="/img/jogo.png" width="170" height="170"></img>
+  <img src="/img/jogo.png"></img>
 
 
 - Dashboard conectado ao Banco de Dados:
 
-  <img src="/img/heroi.jpg" width="170" height="170"></img>
+  <img src="/img/dashboard.png"></img>
 
 
 ## Créditos
