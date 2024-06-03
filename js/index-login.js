@@ -18,7 +18,7 @@ const app = Vue.createApp({
     methods: {
         async criarConta() {
             try {
-                const response = await fetch('https://minigame-vue-node.onrender.com', {
+                const response = await fetch('https://minigame-vue-node.onrender.com/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
