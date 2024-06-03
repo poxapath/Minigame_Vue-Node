@@ -18,7 +18,7 @@ const app = Vue.createApp({
     methods: {
         async criarConta() {
             try {
-                const response = await fetch('https://minigame-vue-node.onrender.com/login', {
+                const response = await fetch('https://minigame-vue-node.onrender.com/register', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ const app = Vue.createApp({
         },
         async fazerLogin() {
             try {
-                const response = await fetch('https://minigame-vue-node.onrender.com', {
+                const response = await fetch('https://minigame-vue-node.onrender.com/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
