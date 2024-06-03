@@ -2,7 +2,7 @@
 
 Nesse jogo, temos duas cartas na mesa: nossa heroína "Violeta" e nosso vilão "Síndrome", e eles estão prontos para guerrear! Mas precisamos de você, jogador, e toda sua tática para vencermos o vilão. Prepare-se para escolher as melhores jogadas, atacar com força, defender com sabedoria, usar poções mágicas e, se necessário, bater em retirada. O destino da nossa vitória está em suas mãos!
 
-<!-- 👾 Acesse o jogo: <a href="/"> clicando aqui! </a> -->
+👾 Acesse o jogo: <a href="https://minigame-vue-node.onrender.com"> clicando aqui! </a>
 
 ##
  
