@@ -71,14 +71,19 @@ app.post('/register', async (req, res) => {
     try {
         await sql.connect(config);
         const request = new sql.Request();
+        await request.input('nome', sql.VarChar, nome);
+        await request.input('email', sql.VarChar, email);
+        await request.input('senha', sql.VarChar, senha);
         await request.query(`
             INSERT INTO Usuarios (nome, email, senha)
-            VALUES ('${nome}', '${email}', '${senha}')
+            VALUES (@nome, @email, @senha)
         `);
         res.status(201).send('Conta criada com sucesso.');
     } catch (err) {
         console.error('Erro ao criar conta:', err);
         res.status(500).send('Erro ao criar conta.');
+    } finally {
+        sql.close();
     }
 });
 
@@ -89,8 +94,10 @@ app.post('/login', async (req, res) => {
     try {
         await sql.connect(config);
         const request = new sql.Request();
+        await request.input('nome', sql.VarChar, nome);
+        await request.input('senha', sql.VarChar, senha);
         const result = await request.query(`
-            SELECT * FROM Usuarios WHERE nome = '${nome}' AND senha = '${senha}'
+            SELECT * FROM Usuarios WHERE nome = @nome AND senha = @senha
         `);
 
         if (result.recordset.length > 0) {
@@ -101,6 +108,8 @@ app.post('/login', async (req, res) => {
     } catch (err) {
         console.error('Erro ao fazer login:', err);
         res.status(500).send('Erro ao fazer login.');
+    } finally {
+        sql.close();
     }
 });
 

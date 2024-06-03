@@ -1,5 +1,3 @@
-
-
 const app = Vue.createApp({
     data() {
         return {
@@ -7,10 +5,9 @@ const app = Vue.createApp({
             cadastroRealizado: false,
             avisoLogin: '',
             avisoCadastro: '',
-            name: '',
-            username: '',
+            nome: '',
             email: '',
-            password: '',
+            senha: '',
             newUsername: '',
             newPassword: ''
         };
@@ -40,33 +37,7 @@ const app = Vue.createApp({
                 alert('Erro ao criar conta.');
             }
         },
-        
-        login() {
-            if (this.email && this.username && this.password) {
-                this.loginRealizado = true;
-                // this.avisoLogin = "Login realizado";
-            } else {
-                // this.avisoLogin = "Por favor, preencha todos os campos.";
-            }
-        },
-        cadastrar() {
-            if (this.name && this.newUsername && this.newPassword) {
-                this.cadastroRealizado = true;
-                // this.avisoCadastro = "Cadastro realizado";
-                this.username = this.newUsername;
-                this.password = this.newPassword;
-            } else {
-                // this.avisoCadastro = "Por favor, preencha todos os campos.";
-            }
-        },
-        mostrarCadastro() {
-            this.cadastroRealizado = true;
-            this.avisoCadastro = '';
-        },
-        mostrarLogin() {
-            this.cadastroRealizado = false;
-            this.avisoCadastro = '';
-        },
+
         async fazerLogin() {
             try {
                 const response = await fetch('https://minigame-vue-node.onrender.com/login', {
@@ -79,7 +50,7 @@ const app = Vue.createApp({
                         senha: this.senha
                     })
                 });
-        
+
                 if (response.status === 200) {
                     alert('Login bem-sucedido.');
                     window.open('/index.html');
@@ -91,20 +62,41 @@ const app = Vue.createApp({
                 alert('Erro ao fazer login.');
             }
         },
+
+        login() {
+            if (this.email && this.newUsername && this.newPassword) {
+                this.loginRealizado = true;
+                this.avisoLogin = "Login realizado";
+            } else {
+                this.avisoLogin = "Por favor, preencha todos os campos.";
+            }
+        },
+
+        cadastrar() {
+            if (this.nome && this.newUsername && this.newPassword) {
+                this.cadastroRealizado = true;
+                this.avisoCadastro = "Cadastro realizado";
+                this.username = this.newUsername;
+                this.password = this.newPassword;
+            } else {
+                this.avisoCadastro = "Por favor, preencha todos os campos.";
+            }
+        },
+
+        mostrarCadastro() {
+            this.cadastroRealizado = true;
+            this.avisoCadastro = '';
+        },
+
+        mostrarLogin() {
+            this.cadastroRealizado = false;
+            this.avisoCadastro = '';
+        },
+
         alterarLoginCadastro() {
             this.$emit('alterar', 'Cadastro');
         }
     }
 });
 
-const Login = {
-    data() {
-        return {
-            nome: '',
-            senha: ''
-        };
-    },
-    methods: {
-    }
-};
 app.mount("#app");
